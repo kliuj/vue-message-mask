@@ -6,12 +6,30 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>vue-pay-keyboard</title>
+  <script type="text/javascript" src="https://unpkg.com/vue"></script>
 </head>
 
 <body>
   <div id="app">
+  	<ul>
+        <li>
+            <label >输入弹出内容</label>
+            <input v-model="message" style="border: 1px solid rgb(84, 73, 73);padding:5px"/>
+        </li>
+        <li @click="showloading">
+            <label >loading</label>
+        </li>
+        <li @click="showmsg">
+            <label >messgae</label>
+        </li>
+        <li @click="showconfirm">
+            <label >confirm</label>
+        </li>
+        <li @click="showdiy">
+            <label >diy</label>
+        </li>
+    </ul>
   </div>
-   <script src="/dist/vue-pay-keyboard.js"></script>   
+   <script src="./dist/demoBundle.js"></script>  
 </body>
-
 </html>
