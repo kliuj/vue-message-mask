@@ -1,6 +1,6 @@
 {
   "name": "vue-message-mask",
-  "version": "1.0.7",
+  "version": "1.0.9",
   "description": "a mask plugin for vue",
   "main": "./dist/VueMessageMask.js",
   "scripts": {

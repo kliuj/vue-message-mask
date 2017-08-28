@@ -15,6 +15,7 @@ a message mask plugin for vue
  
  ``` js
   import VueMessageMask from 'vue-message-mask'
+  VueMessageMask.install(Vue)
   Vue.use(VueMessageMask)
   ...
   <template>
