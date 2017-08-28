@@ -3,7 +3,9 @@ a message mask plugin for vue
 
 ## demo
 
- ![https://github.com/kliuj/vue-message-mask/blob/master/demo/demo.gif]
+<p align="center">
+    <img src="https://github.com/kliuj/vue-message-mask/blob/master/demo/demo.gif">
+</p>
 
 ## Install
  ``` js
