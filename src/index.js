@@ -1,7 +1,9 @@
 import Vue from 'vue'
-import VueMessageMask from '../dist/VueMessageMask.js'
-
+// import VueMessageMask from '../dist/VueMessageMask.js'
+import VueMessageMask from '../lib/index.js'
 Vue.use(VueMessageMask)
+
+import  Diy from './diy.vue'
 
 new Vue({
 	el:'#app',
@@ -9,19 +11,25 @@ new Vue({
 		message:'hello world'
 	},
 	methods:{
-            showloading:function(vm){
-            	console.log(vm)
-            	this.message = '123'
-            console.log(window.test = this)
+            showloading:function(){
                 this.VMaskController.showVMaskLoading({loadingText:this.message})
             },
-            showmsg(){
+            showloadingWithoutClose(){
+                this.VMaskController.showVMaskLoading({loadingText:this.message,showLoadingCloseButton:false})
+                setTimeout(()=>{
+                    this.VMaskController.closeVMask()
+                },3000)
+            },
+            showCommonMsg(){
+              this.VMaskController.showVMaskMsg(this.message)
+            },
+            showMultiMsg(){
                 this.VMaskController.showVMaskMultiMsg({
                     message:this.message,
                     showOkButton:true,
                     okText:'知道了',
                     okAction:()=>{
-                        console.log('点击了确认按钮')
+                        console.log('点击了知道按钮')
                     }
                 })
             },
@@ -41,8 +49,7 @@ new Vue({
                 })
             },
             showdiy(){
-                const _html_ = '<div style="height:100px;width:200px;background-color:#fff;font-size:20px">测试自定义</div>'
-                this.VMaskController.showDiyVMask(_html_)
+                this.VMaskController.showDiyVMask(Diy)
             }
         }
 })

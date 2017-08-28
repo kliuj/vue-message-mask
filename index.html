@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>vue-pay-keyboard</title>
+  <title>vue-message-mask-demo</title>
   <script type="text/javascript" src="https://unpkg.com/vue"></script>
 </head>
 
@@ -17,10 +17,16 @@
             <input v-model="message" style="border: 1px solid rgb(84, 73, 73);padding:5px"/>
         </li>
         <li @click="showloading">
-            <label >loading</label>
+            <label >loading 带关闭按钮</label>
         </li>
-        <li @click="showmsg">
-            <label >messgae</label>
+        <li @click="showloadingWithoutClose">
+            <label >loading 不带关闭按钮 ，手动设置3秒关闭</label>
+        </li>
+        <li @click="showCommonMsg">
+            <label >普通 messgae</label>
+        </li>
+        <li @click="showMultiMsg">
+            <label >自定义 按钮文字和回调的 messgae</label>
         </li>
         <li @click="showconfirm">
             <label >confirm</label>

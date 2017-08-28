@@ -1,6 +1,7 @@
 <template>
     <div v-show="showMask" class="vmask-box" >
-        <div v-if="showLoading" class="vmask-loading-inner" @click="close()">
+        <div v-if="showLoading" class="vmask-loading-inner" >
+            <i v-if="showLoadingCloseButton" class="vmask-close-icon" @click="close()"></i>
             <i class="vmask-loading-icon"></i>
             <p>{{loadingText}}</p>
         </div>
@@ -11,47 +12,38 @@
                 <div class="cui-flexbd cui-btns-ok" v-if="showOkButton" @click="handleAction('okAction')">{{okText}}</div>
             </div>
         </div>
-        <div v-html="diyComponent" @click="close()" class="vmask-diy"></div>
+        <div v-if="diyComponent"  class="vmask-diy">
+            <component :is="diyComponent">
+            </component>
+        </div>
     </div>
 </template>
 <script>
-    //初始化数据
-    const default_data = {
-        showMask:false, //主容器
-        loadingText:'', //loading文案
-        showLoading:false, //loading显示控制
-        showMessage:false, //message和confirm弹框
-        message:'',//弹框文案
-        showOkButton:false,
-        showCancelButton:false,
-        okAction:()=>{},
-        cancelAction:()=>{},
-        okText:'确认',//确认文案
-        cancelText:'取消',//取消按钮文案
-        diyComponent:''
+    let merge = function(target) {
+        for (let i = 1, j = arguments.length; i < j; i++) {
+            let source = arguments[i];
+            for (let prop in source) {
+                if (source.hasOwnProperty(prop)) {
+                    let value = source[prop];
+                    if (value !== undefined) {
+                        target[prop] = value;
+                    }
+                }
+            }
+        }
+        return target;
     }
+
+    import DEFAULT_DATA from './default_data'
     export default{
         data(){
-            return{
-                showMask:false, //主容器
-                loadingText:'', //loading文案
-                showLoading:false, //loading显示控制
-                showMessage:false, //message和confirm弹框
-                message:'',//弹框文案
-                showOkButton:false,
-                showCancelButton:false,
-                okAction:()=>{},
-                cancelAction:()=>{},
-                okText:'确认',//确认文案
-                cancelText:'取消',//取消按钮文案
-                diyComponent:'',//自定义弹框的内容
-            }
+            return merge({},DEFAULT_DATA)
         },
         methods:{
             close(cb){
-                for (var prop in default_data) {
-                    if (default_data.hasOwnProperty(prop)) {
-                        this[prop] = default_data[prop];
+                for (var prop in DEFAULT_DATA) {
+                    if (DEFAULT_DATA.hasOwnProperty(prop)) {
+                        this[prop] = DEFAULT_DATA[prop];
                     }
                 }
                 cb && cb()
@@ -105,7 +97,23 @@
     -webkit-animation: gif 1s infinite linear;
     animation: gif 1s infinite linear;
     clip: rect(0 auto 12px 0);
-
+}
+.vmask-close-icon{
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    border-radius: 100%;
+    background-color: rgba(0,0,0,.5);
+    text-align: center;
+    z-index: 99999;
+}
+.vmask-close-icon::after {
+    content: 'x';
+    font-style: normal;
+    line-height: 20px;
+    text-align: left;
 }
 @keyframes gif {
     0% {
