@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import VueMessageMask from '../dist/VueMessageMask.js'
-// import VueMessageMask from '../lib/index.js'  dev使用
+// import VueMessageMask from '../lib/index.js'  //dev使用
+VueMessageMask.install(Vue)
 Vue.use(VueMessageMask)
 
 import  Diy from './diy.vue'
