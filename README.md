@@ -12,7 +12,8 @@ a message mask plugin for vue
   npm install vue-message-mask --save
  ``` 
  #### Using the `vue-message-mask` in component
- 
+
+ ## import
  ``` js
   import VueMessageMask from 'vue-message-mask'
   VueMessageMask.install(Vue)
@@ -30,6 +31,23 @@ a message mask plugin for vue
       }
     }
   </script>
+ ```
+ ## script 标签
+ ``` js
+    ...
+    <script src="./vue.min.js"></script>
+    <script src="./dist/VueMessageMask.js"></script>
+    <script>
+        VueMessageMask.install(Vue)
+        Vue.use(VueMessageMask)
+        new Vue({
+            methods:{
+                showloading(){
+                  this.VueMessageMask.showVMaskLoading("hello world")
+                }
+              }
+        })
+    </script>
  ```
  ## API
   ``` js
