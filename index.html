@@ -6,7 +6,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>vue-message-mask-demo</title>
-  <script type="text/javascript" src="https://unpkg.com/vue"></script>
+  <script type="text/javascript" src="./node_modules/vue/dist/vue.min.js"></script>
+  <style>
+    *{
+        margin:0;
+        padding:0;
+        background-color: #fff;
+    }
+      ul,li{list-style: none}
+      li{
+          padding: 10px;
+          line-height: 20px;
+          border-bottom:1px solid #f0f0f0
+      }
+  </style>
 </head>
 
 <body>
@@ -17,22 +30,22 @@
             <input v-model="message" style="border: 1px solid rgb(84, 73, 73);padding:5px"/>
         </li>
         <li @click="showloading">
-            <label >loading 带关闭按钮</label>
+            <label >loading 带关闭按钮（默认不带），手动设置3秒关闭</label>
         </li>
-        <li @click="showloadingWithoutClose">
-            <label >loading 不带关闭按钮 ，手动设置3秒关闭</label>
+        <li @click="showloadingWithClose">
+            <label >loading 带关闭按钮 </label>
         </li>
         <li @click="showCommonMsg">
             <label >普通 messgae</label>
         </li>
         <li @click="showMultiMsg">
-            <label >自定义 按钮文字和回调的 messgae</label>
+            <label >自定义按钮文字和事件回调的 messgae</label>
         </li>
         <li @click="showconfirm">
-            <label >confirm</label>
+            <label >confirm提示，默认是确定和取消</label>
         </li>
         <li @click="showdiy">
-            <label >diy</label>
+            <label >自定义弹出框内容</label>
         </li>
     </ul>
   </div>

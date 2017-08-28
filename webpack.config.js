@@ -2,7 +2,7 @@ var path = require('path')
 var webpack = require('webpack')
 
 module.exports = {
-  entry: {VueMessageMask:'./lib/index.js',demoBundle:'./src/index.js'}, // 项目入口
+  entry: {VueMessageMask:'./lib/index.js',demoBundle:'./demo/index.js'}, // 项目入口
   output: {
     path: path.resolve(__dirname, './dist'),
     publicPath: '/dist/',

@@ -1,6 +1,6 @@
 import Vue from 'vue'
-// import VueMessageMask from '../dist/VueMessageMask.js'
-import VueMessageMask from '../lib/index.js'
+import VueMessageMask from '../dist/VueMessageMask.js'
+// import VueMessageMask from '../lib/index.js'
 Vue.use(VueMessageMask)
 
 import  Diy from './diy.vue'
@@ -13,12 +13,13 @@ new Vue({
 	methods:{
             showloading:function(){
                 this.VMaskController.showVMaskLoading({loadingText:this.message})
-            },
-            showloadingWithoutClose(){
-                this.VMaskController.showVMaskLoading({loadingText:this.message,showLoadingCloseButton:false})
                 setTimeout(()=>{
                     this.VMaskController.closeVMask()
                 },3000)
+            },
+            showloadingWithClose(){
+                this.VMaskController.showVMaskLoading({loadingText:this.message,showLoadingCloseButton:true})
+
             },
             showCommonMsg(){
               this.VMaskController.showVMaskMsg(this.message)

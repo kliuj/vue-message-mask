@@ -83,7 +83,8 @@
 .vmask-loading-inner p{
     word-wrap: break-word;
     padding:0 10px 0 10px;
-    margin:0
+    margin:0;
+    background-color: transparent;
 }
 .vmask-loading-icon {
     position: absolute;
@@ -97,6 +98,7 @@
     -webkit-animation: gif 1s infinite linear;
     animation: gif 1s infinite linear;
     clip: rect(0 auto 12px 0);
+    background-color: transparent;
 }
 .vmask-close-icon{
     width: 20px;
