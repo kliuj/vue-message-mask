@@ -38,7 +38,7 @@ a message mask plugin for vue
     <script src="./vue.min.js"></script>
     <script src="./dist/VueMessageMask.js"></script>
     <script>
-        VueMessageMask.install(Vue)
+        VueMessageMask.default.install(Vue)
         Vue.use(VueMessageMask)
         new Vue({
             methods:{
