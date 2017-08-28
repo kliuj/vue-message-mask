@@ -1,8 +1,9 @@
 # vue-message-mask
 a message mask plugin for vue
 
-##demo
- ![img]https://github.com/kliuj/vue-message-mask/blob/master/demo/demo.gif
+## demo
+
+ ![https://github.com/kliuj/vue-message-mask/blob/master/demo/demo.gif]
 
 ## Install
  ``` js
