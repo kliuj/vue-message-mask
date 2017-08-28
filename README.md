@@ -30,4 +30,6 @@ a message mask plugin for vue
     }
   </script>
  ```
+ ## API
+ **Option**|**Type's**|**Default**|**Description**
 
